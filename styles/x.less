@@ -19,7 +19,7 @@ html, body {
 	@secondaryFontColor: #d9d9d9;
 	@emphasized: #FFF5ED;
 	@accentColor: #4e9a06;
-	@interfaceBgColor: rgba(0,0,0,0.4);
+	@interfaceBgColor: rgba(0,0,0,0.8);
 	@secondaryAccentColor: #2A85E8;
 	@blockquoteBorderColor: #999;
 	@transparent: rgba(0,0,0,0);
@@ -156,6 +156,7 @@ a {
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: @headlineSans;
+	color: @accentColor;
 }
 blockquote {
 	border-left: 0.1rem solid @blockquoteBorderColor;
@@ -189,10 +190,11 @@ textarea {
 	margin-top: 0 !important;
 }
 #contentContainer {
-	background-image: url('/images/top.png'), url('/images/bottom.png'), url('/images/pattern.jpg');
+	/*background-image: url('/images/top.png'), url('/images/bottom.png'), url('/images/pattern.jpg');
 	background-repeat: no-repeat, no-repeat, repeat;
 	background-position: left top, left bottom, left top;
-	background-size: contain, contain, contain;
+	background-size: contain, contain, contain;*/
+	background: url('http://creationofsociety.com/wp/wp-content/uploads/2012/06/cos_flyer_back.jpg');
 	z-index:0;
 }
 .sectionContainer {
