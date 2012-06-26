@@ -149,8 +149,8 @@
 					<div class="row">
 						<div class="twelve columns">
 							<div id="logo">
-								<a href="<?php echo bloginfo('url'); ?>" title="Savage Workouts" rel="bookmark">
-									<img src="/images/savage_bannerlogo.png" alt="Savage Workouts, est. 1996" />
+								<a href="<?php echo bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" rel="bookmark">
+									<img src="/images/creation-of-society-llc1.jpg" alt="<?php bloginfo('name'); ?>" />
 								</a>
 							</div>
 						</div><!-- #Unique ID .twelve columns -->
