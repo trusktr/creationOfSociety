@@ -1,0 +1,7 @@
+# Ignore these files:
+#wp
+styles/x.css
+styles/googleChromeFrame.css
+
+# But not these files:
+#!wp/wp-content/themes/savage/index.php
