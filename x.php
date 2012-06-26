@@ -123,7 +123,7 @@
 	<?php if (!$isIe || ($isIe && $ieVersion > 8)) { ?>
 		<?php wp_head(); ?>
 	<?php } else if ($isIe && $ieVersion == 8) { ?>
-		<script src="/includes/foundation/java/scripts/jquery-1.7.1.min.js"></script>
+		<script src="/includes/foundation/javascripts/jquery-1.7.1.min.js"></script>
 	<?php } ?>
 
 </head>
@@ -335,11 +335,11 @@
 
 		<?php if (!$isIe || ($isIe && $ieVersion > 8)) { ?>
 			<!-- jQuery -->
-			<!--<script src="/includes/foundation/java/scripts/jquery-1.7.1.min.js"></script>-->
+			<!--<script src="/includes/foundation/javascripts/jquery-1.7.1.min.js"></script>-->
 			
 			<!-- Foundation -->
-			<script src="/includes/foundation/java/scripts/modernizr.foundation.js"></script>
-			<script src="/includes/foundation/java/scripts/foundation.js"></script>
+			<script src="/includes/foundation/javascripts/modernizr.foundation.js"></script>
+			<script src="/includes/foundation/javascripts/foundation.js"></script>
 			
 			<!-- Custom Scripts -->
 			<script src="/includes/mouseFollowFaces/js.js"></script>
