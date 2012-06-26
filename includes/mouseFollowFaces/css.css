@@ -1,0 +1,38 @@
+﻿
+
+
+.faces {
+	position: relative;
+	overflow: auto;
+}
+	#face1 img {
+	}
+	#face2 {
+	}
+		#face2 img {
+		}
+	#face3 {
+	}
+		#face3 img {
+		}
+	.face_container {
+		/*position: relative;*/
+		margin-left: 20px;
+		padding: 0;
+		float: left;
+		width: 140px;
+		height: 140px;
+	}
+	.face_container:first-child {
+		margin: 0;
+	}
+		.face {
+			position: absolute;
+			overflow: auto;
+			width: inherit;
+		}
+			.face_img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}​

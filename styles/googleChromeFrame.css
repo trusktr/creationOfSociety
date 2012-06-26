@@ -1,0 +1,6 @@
+html { overflow:hidden; }
+#chromeFrameOverlayContent .chromeFrameOverlayCloseBar {
+  color:#000000;
+  font-size:2.4px;
+}
+#chromeFrameOverlayContent .chromeFrameOverlayCloseBar #chromeFrameCloseButton { visibility:hidden; }
