@@ -15,10 +15,10 @@
 
 		<div id="x"></div>
 		
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="three.js"></script>
-		<script src="RequestAnimationFrame.js"></script>
-		<script src="Stats.js"></script>
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src="includes/three.js/three.js"></script>
+		<script src="includes/requestAnimationFrame/RequestAnimationFrame.js"></script>
+		<script src="includes/stats.js/Stats.js"></script>
 		<script>
 
 			var container, stats = false;
@@ -57,7 +57,7 @@
 					materials.push( [
 						new THREE.MeshBasicMaterial(
 							/*{ color: Math.random() * 0xffffff }*/ // Random Colors for the sides.
-							{ map: THREE.ImageUtils.loadTexture( 'creation-of-society-llc1.jpg' ) } // Image mapped to each side.
+							{ map: THREE.ImageUtils.loadTexture( 'img/creation-of-society-llc1.jpg' ) } // Image mapped to each side.
 						)
 					] );
 
