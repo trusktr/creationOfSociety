@@ -139,49 +139,32 @@ if (!function_exists('eshop_ajax_inc')) {
 
 if (!function_exists('eshop_action_javascript')) {
 	function eshop_action_javascript() {
-	$eshopajaxcart['addfadein']=100;
-	$eshopajaxcart['addfadeout']=3000;
-	$eshopajaxcart['cartcleardelay']=1000;
-	$eshopajaxcart['cartdelay']=750;
-	$eshopajaxcart['cartupdate']=3000;
-	$eshopajaxcart['cartfadeout']=50;
-	$eshopajaxcart['cartfadein']=700;
-	//expects an array
-	$eshopajaxcart=apply_filters('eshop_ajax_cart',$eshopajaxcart);
-	?>
-<script type="text/javascript">
-//<![CDATA[
-jQuery(document).ready(function($){
-	$('.addtocart').submit(function(){
-		var Id =$(this).attr("id");
-		var data = {action: 'eshop_special_action',post:$('#'+Id).serialize() };  
-		$.post("<?php echo admin_url('admin-ajax.php'); ?>", data,
-			function(response){
-			$('#'+Id +" .eshopajax").insertAfter(this).fadeIn(<?php echo $eshopajaxcart['addfadein']; ?>).html(response).fadeOut(<?php echo $eshopajaxcart['addfadeout']; ?>);
-			setTimeout (cleareshopCart,<?php echo $eshopajaxcart['cartcleardelay']; ?>); 
-			setTimeout (doeshopRequest,<?php echo $eshopajaxcart['cartdelay']; ?>);  
-			setTimeout (cleareshopRequest,<?php echo $eshopajaxcart['cartupdate']; ?>);  
-		});
-		function doeshopRequest(){
-			var tdata = {action: 'eshop_cart'};
-			$.post("<?php echo admin_url('admin-ajax.php'); ?>", tdata,
-			function(response){
-				$(".ajaxcart").insertAfter(this).fadeOut(<?php echo $eshopajaxcart['cartfadeout']; ?>).html(response).fadeIn(<?php echo $eshopajaxcart['cartfadein']; ?>);
-			});
-		}
-		function cleareshopRequest(){
-			$(".eshopajax").empty();
-		}
-		function cleareshopCart(){
-			$(".ajaxcart").insertAfter();
-		}
-		return false;
-	});
 
-});
-//]]>
-</script>
-	<?php
+		$eshopajaxcart['addfadein']=100;
+		$eshopajaxcart['addfadeout']=3000;
+		$eshopajaxcart['cartcleardelay']=1000;
+		$eshopajaxcart['cartdelay']=750;
+		$eshopajaxcart['cartupdate']=3000;
+		$eshopajaxcart['cartfadeout']=50;
+		$eshopajaxcart['cartfadein']=700;
+		//expects an array
+		$eshopajaxcart=apply_filters('eshop_ajax_cart',$eshopajaxcart);
+		
+		$eshopCartParams = array(
+		  'addfadein' => $eshopajaxcart['addfadein'],
+		  'addfadeout' => $eshopajaxcart['addfadeout'],
+		  'cartcleardelay' => $eshopajaxcart['cartcleardelay'],
+		  'cartdelay' => $eshopajaxcart['cartdelay'],
+		  'cartupdate' => $eshopajaxcart['cartupdate'],
+		  'cartfadeout' => $eshopajaxcart['cartfadeout'],
+		  'cartfadein' => $eshopajaxcart['cartfadein'],
+		  
+		  'adminajax' => admin_url('admin-ajax.php'),
+		);
+		
+		wp_register_script( 'eshop_cart_widget', ''.plugins_url().'/eshop/eshop-cart.js');
+		wp_enqueue_script('eshop_cart_widget');
+		wp_localize_script('eshop_cart_widget', 'eshopCartParams', $eshopCartParams);
 	}
 }
 

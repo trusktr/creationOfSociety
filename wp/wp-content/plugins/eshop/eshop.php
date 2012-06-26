@@ -131,8 +131,8 @@ if(is_admin()){
 /* ajax the cart - won't allow me to put this in the above*/
 if(isset($eshopoptions['ajax_cart']) && 'yes' == $eshopoptions['ajax_cart']){
 	include_once 'public-functions.php';
-	add_action('wp_head', 'eshop_action_javascript');
 	add_action('wp_print_scripts', 'eshop_ajax_inc');
+	add_action('wp_print_scripts', 'eshop_action_javascript');
 	add_action('wp_ajax_eshop_special_action', 'eshop_special_action_callback');
 	add_action('wp_ajax_nopriv_eshop_special_action', 'eshop_special_action_callback');
 	add_action('wp_ajax_eshop_cart', 'eshop_cart_callback');

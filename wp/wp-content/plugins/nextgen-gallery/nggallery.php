@@ -350,7 +350,7 @@ class nggLoader {
 		if ( ($this->options['thumbEffect'] == "shutter") && !function_exists('srel_makeshutter') ) {
 			wp_register_script('shutter', NGGALLERY_URLPATH .'shutter/shutter-reloaded.js', false ,'1.3.3');
 			wp_localize_script('shutter', 'shutterSettings', array(
-						'msgLoading' => __('L O A D I N G', 'nggallery'),
+						'msgLoading' => __('L O A D I N Ghello', 'nggallery'),
 						'msgClose' => __('Click to Close', 'nggallery'),
 						'imageCount' => '1'				
 			) );

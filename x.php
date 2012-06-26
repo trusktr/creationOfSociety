@@ -1,5 +1,5 @@
 <?php
-	$mouseFollowFacesLocation = 'includes/mouseFollowFaces/img/followMouse_faces';
+	$mouseFollowFacesLocation = '/includes/mouseFollowFaces/img/followMouse_faces';
 	$successFacesNames = array('tricia_mcfadden','chris_phelan','chris_savage');
 	$isIe = false;
 	$isChrome = false;
@@ -17,9 +17,9 @@
 	
 	if ($isIe) {
 		/* COMPILE LESS TO CSS IF LESS FILE HAS BEEN UPDATED */
-		include('includes/lessphp/lessc.inc.php');
-		lessc::ccompile('styles/x.less', 'styles/x.css');
-		lessc::ccompile('styles/googleChromeFrame.less', 'styles/googleChromeFrame.css');
+		include('/includes/lessphp/lessc.inc.php');
+		lessc::ccompile('/styles/x.less', '/styles/x.css');
+		lessc::ccompile('/styles/googleChromeFrame.less', '/styles/googleChromeFrame.css');
 	}
 ?>
 <!DOCTYPE html>
@@ -45,11 +45,11 @@
 			<meta name="viewport" content="width=device-width" />
 	  
 		<!-- Foundation Framework CSS Files -->
-			<link rel="stylesheet" href="includes/foundation/stylesheets/foundation.css" />
+			<link rel="stylesheet" href="/includes/foundation/stylesheets/foundation.css" />
 
 			<?php if ($isIe) { ?>
 				<?php if ($ieVersion < 9) { ?>
-					<link rel="stylesheet" href="includes/foundation/stylesheets/ie.css" />
+					<link rel="stylesheet" href="/includes/foundation/stylesheets/ie.css" />
 
 					<!-- IE Fix for HTML5 Tags -->
 					<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -60,20 +60,20 @@
 	<!-- CUSTOM STUFF ############################### -->
 		<!-- STYLES -->
 			<?php /* MOUSE-FOLLOWING FACES */ ?>
-			<link rel="stylesheet" type="text/css" href="includes/mouseFollowFaces/css.css" />
+			<link rel="stylesheet" type="text/css" href="/includes/mouseFollowFaces/css.css" />
 			
 			<?php if ($isIe) { ?>
-				<link rel="stylesheet" type="text/css" href="styles/x.css" />
+				<link rel="stylesheet" type="text/css" href="/styles/x.css" />
 				<?php if ($ieVersion < 9 && !$isChromeFrame) { ?>
-					<link rel="stylesheet" type="text/css" href="styles/googleChromeFrame.css" />
+					<link rel="stylesheet" type="text/css" href="/styles/googleChromeFrame.css" />
 				<?php } ?>
 			<?php } else { ?>
-				<link rel="stylesheet/less" type="text/css" href="styles/x.less" />
+				<link rel="stylesheet/less" type="text/css" href="/styles/x.less" />
 			<?php } ?>
 			
-			<?php if ($isIe) { ?> <link rel="stylesheet" type="text/css" href="styles/ie.css"> <?php } ?>
+			<?php if ($isIe) { ?> <link rel="stylesheet" type="text/css" href="/styles/ie.css"> <?php } ?>
 			
-			<?php if ($isFirefox) { ?> <link rel="stylesheet/less" type="text/css" href="styles/ff.css" /> <?php } ?>
+			<?php if ($isFirefox) { ?> <link rel="stylesheet/less" type="text/css" href="/styles/ff.css" /> <?php } ?>
 				
 				
 		<!-- SCRIPTS -->
@@ -99,7 +99,7 @@
 			
 			<!-- Parse Less -->
 			<?php if (!$isIe) { ?>
-				<script src="includes/lesscss/less_1.3.0.js" type="text/javascript"></script>
+				<script src="/includes/lesscss/less_1.3.0.js" type="text/javascript"></script>
 			<?php } ?>
 			
 			<script>
@@ -123,7 +123,7 @@
 	<?php if (!$isIe || ($isIe && $ieVersion > 8)) { ?>
 		<?php wp_head(); ?>
 	<?php } else if ($isIe && $ieVersion == 8) { ?>
-		<script src="includes/foundation/javascripts/jquery-1.7.1.min.js"></script>
+		<script src="/includes/foundation/java/scripts/jquery-1.7.1.min.js"></script>
 	<?php } ?>
 
 </head>
@@ -150,7 +150,7 @@
 						<div class="twelve columns">
 							<div id="logo">
 								<a href="<?php echo bloginfo('url'); ?>" title="Savage Workouts" rel="bookmark">
-									<img src="images/savage_bannerlogo.png" alt="Savage Workouts, est. 1996" />
+									<img src="/images/savage_bannerlogo.png" alt="Savage Workouts, est. 1996" />
 								</a>
 							</div>
 						</div><!-- #Unique ID .twelve columns -->
@@ -330,24 +330,24 @@
 		<?php /* GOOGLE CHROME FRAME FOR IE < 9 */ ?>
 		<?php if ($isIe && !$isChromeFrame) { ?>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-			<script src="includes/googleChromeFrame/googleChromeFrame.js"></script>
+			<script src="/includes/googleChromeFrame/googleChromeFrame.js"></script>
 		<?php } ?>
 
 		<?php if (!$isIe || ($isIe && $ieVersion > 8)) { ?>
 			<!-- jQuery -->
-			<!--<script src="includes/foundation/javascripts/jquery-1.7.1.min.js"></script>-->
+			<!--<script src="/includes/foundation/java/scripts/jquery-1.7.1.min.js"></script>-->
 			
 			<!-- Foundation -->
-			<script src="includes/foundation/javascripts/modernizr.foundation.js"></script>
-			<script src="includes/foundation/javascripts/foundation.js"></script>
+			<script src="/includes/foundation/java/scripts/modernizr.foundation.js"></script>
+			<script src="/includes/foundation/java/scripts/foundation.js"></script>
 			
 			<!-- Custom Scripts -->
-			<script src="includes/mouseFollowFaces/js.js"></script>
+			<script src="/includes/mouseFollowFaces/js.js"></script>
 			<script><?php /* This is needed by x.js */ ?>
 				var wp_thumbnail_size_w = <?php echo get_option('thumbnail_size_w', '90') ?>,
 					wp_thumbnail_size_h = <?php echo get_option('thumbnail_size_h', '90') ?>;
 			</script>
-			<script src="scripts/x.js"></script>
+			<script src="/scripts/x.js"></script>
 		<?php } ?>
 	<?php } else { ?>
 		<div style="position: absolute; width: 300px; left: 50%; top: 30%; margin-left: -150px;">
