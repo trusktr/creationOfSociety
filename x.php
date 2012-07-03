@@ -15,7 +15,7 @@
 	else if	(isFirefox()) 		$isFirefox = true;
 	$ieVersion = ieVersion();
 	
-	if ($isIe) {
+	if ($isIe && !$isChromeFrame) {
 		/* COMPILE LESS TO CSS IF LESS FILE HAS BEEN UPDATED */
 		include('/includes/lessphp/lessc.inc.php');
 		lessc::ccompile('/styles/x.less', '/styles/x.css');
@@ -47,7 +47,7 @@
 		<!-- Foundation Framework CSS Files -->
 			<link rel="stylesheet" href="/includes/foundation/stylesheets/foundation.css" />
 
-			<?php if ($isIe) { ?>
+			<?php if ($isIe && !$isChromeFrame) { ?>
 				<?php if ($ieVersion < 9) { ?>
 					<link rel="stylesheet" href="/includes/foundation/stylesheets/ie.css" />
 
@@ -62,16 +62,16 @@
 			<?php /* MOUSE-FOLLOWING FACES */ ?>
 			<link rel="stylesheet" type="text/css" href="/includes/mouseFollowFaces/css.css" />
 			
-			<?php if ($isIe) { ?>
+			<?php if ($isIe && !$isChromeFrame) { ?>
 				<link rel="stylesheet" type="text/css" href="/styles/x.css" />
-				<?php if ($ieVersion < 9 && !$isChromeFrame) { ?>
+				<?php if ($ieVersion < 9) { ?>
 					<link rel="stylesheet" type="text/css" href="/styles/googleChromeFrame.css" />
 				<?php } ?>
 			<?php } else { ?>
 				<link rel="stylesheet/less" type="text/css" href="/styles/x.less" />
 			<?php } ?>
 			
-			<?php if ($isIe) { ?> <link rel="stylesheet" type="text/css" href="/styles/ie.css"> <?php } ?>
+			<?php if ($isIe && !$isChromeFrame) { ?> <link rel="stylesheet" type="text/css" href="/styles/ie.css"> <?php } ?>
 			
 			<?php if ($isFirefox) { ?> <link rel="stylesheet/less" type="text/css" href="/styles/ff.css" /> <?php } ?>
 				
@@ -79,7 +79,7 @@
 		<!-- SCRIPTS -->
 			
 			<?php /* ENABLE ALERT MESSAGE FOR CONSOLE.LOG IN OLD IE */ ?>
-			<?php if ($isIe) { ?>
+			<?php if ($isIe && !$isChromeFrame) { ?>
 				<?php if ($ieVersion > 7 && $ieVersion < 9) { ?>
 					<script>
 						var alertFallback = false;
@@ -265,6 +265,14 @@
 									<?php endwhile; ?>
 
 									<?php // twentyeleven_content_nav( 'nav-below' ); ?>
+	
+									<!-- Begin Pagination -->
+									<article>
+										<?php if (function_exists("emm_paginate")) {
+											emm_paginate();
+										} ?>
+									</article>	        	
+									<!-- End Pagination -->
 
 								<?php else : ?>
 								<?php endif; ?>
