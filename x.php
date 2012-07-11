@@ -235,28 +235,56 @@
 								<?php if ( have_posts() ) : ?>
 
 									<?php //twentyeleven_content_nav( 'nav-above' ); ?>
+	
+									<!-- Begin Pagination -->
+									<article>
+										<?php if (function_exists("emm_paginate")) {
+											emm_paginate();
+										} ?>
+									</article>
+									<!-- End Pagination -->
 
 									<?php /* Start the Loop */ ?>
 									<?php while ( have_posts() ) : the_post(); ?>
 										<?php 
+										
+											//homepage template
 											if (is_home() && file_exists('content-home.php')) {
 												include( 'content-home.php' );
 											}
+											
+											//single post templates
 											else if ( is_single() && file_exists('content-single.php') ) {
 												include( 'content-single.php' );
 											}
+											
+											//page templates
 											else if ( is_page() && file_exists('content-page.php') ) {
 												include( 'content-page.php' );
+											}
+											
+											//category templates
+											else if (is_category('creations-of-society') && file_exists('content-store.php')) {
+												include( 'content-store.php' );
 											}
 											else if ( is_category() && file_exists('content-category.php') ) {
 												include( 'content-category.php' );
 											}
+											
+											//tag templates
 											else if ( is_tag() && file_exists('content-tag.php') ) {
 												include( 'content-tag.php' );
 											}
+											
+											//taxonomy templates
 											else if ( is_tax() && file_exists('content-tax.php') ) {
 												include( 'content-tax.php' );
 											}
+											
+											//archive templates
+											//...
+											
+											//default template
 											else {
 												include( 'content-default.php' );
 											}
@@ -271,7 +299,7 @@
 										<?php if (function_exists("emm_paginate")) {
 											emm_paginate();
 										} ?>
-									</article>	        	
+									</article>
 									<!-- End Pagination -->
 
 								<?php else : ?>
