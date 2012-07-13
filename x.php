@@ -237,7 +237,7 @@
 									<?php //twentyeleven_content_nav( 'nav-above' ); ?>
 	
 									<!-- Begin Pagination -->
-									<article>
+									<!--<article>
 										<?php if (function_exists("emm_paginate")) {
 											emm_paginate();
 										} ?>
@@ -295,7 +295,7 @@
 									<?php // twentyeleven_content_nav( 'nav-below' ); ?>
 	
 									<!-- Begin Pagination -->
-									<article>
+									<!--<article>
 										<?php if (function_exists("emm_paginate")) {
 											emm_paginate();
 										} ?>
@@ -303,6 +303,7 @@
 									<!-- End Pagination -->
 
 								<?php else : ?>
+									<article>Hello.</article>
 								<?php endif; ?>
 							</div>
 						</div><!-- #Unique ID .twelve columns -->
