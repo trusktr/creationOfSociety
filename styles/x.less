@@ -27,6 +27,9 @@ html, body {
 	/*Fonts:*/
 	@headlineSans: BebasNeueRegular;
 	@headlineScript: Ginga;
+	
+	/*Structural Dimensions*/
+	@standardContentPadding: 1.0rem;
 
 /***********************************************
 	FUNCTIONS (MIXINS):
@@ -62,6 +65,12 @@ html, body {
 		background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));
 		background-image: -webkit-linear-gradient(top left, #FFFFFF 0%, #00A3EF 100%);
 		background-image: linear-gradient(to bottom right, #FFFFFF 0%, #00A3EF 100%);
+	}
+	.border-radius(@radius) {
+		-moz-border-radius: @radius; -webkit-border-radius: @radius; border-radius: @radius;
+	}
+	.border-radius_important(@radius) {
+		-moz-border-radius: @radius !important; -webkit-border-radius: @radius !important; border-radius: @radius !important;
 	}
 
 
@@ -165,19 +174,25 @@ blockquote {
 		color: #fff;
 	}
 }
-input[type="text"], textarea {
-	background: rgba(0, 0, 0, 0.5);
-	border: 1px solid rgba(0, 0, 0, 0.5);
-	color: @secondaryFontColor;
+input[type="text"], textarea, select {
+	background: rgba(0, 0, 0, 0.5) !important;
+	border: 1px solid rgba(0, 0, 0, 0.5) !important;
+	color: @secondaryFontColor !important;
 	outline: none;
+	box-shadow: none !important;
+	
 	&:focus {
-		background: rgba(0, 0, 0, 0.5);
-		border: 1px solid @accentColor;
+		background: rgba(0, 0, 0, 0.5) !important;
+		border: 1px solid @accentColor !important;
 	}
 }
 input[type="submit"] {
-	background: @accentColor;
-	border: 1px solid @baseFontColor;
+	background: @accentColor !important;
+	border: 1px solid @baseFontColor !important;
+	.border-radius_important(0px);
+	color: #000 !important;
+	padding: 1px 6px !important;
+	
 	&:hover {
 		outline: 1px solid @baseFontColor;
 	}
@@ -190,11 +205,11 @@ textarea {
 	margin-top: 0 !important;
 }
 #contentContainer {
-	/*background-image: url('/images/top.png'), url('/images/bottom.png'), url('/images/pattern.jpg');
+	background-image: url('/images/top.png'), url('/images/bottom.png'), url('/images/pattern.jpg');
 	background-repeat: no-repeat, no-repeat, repeat;
 	background-position: left top, left bottom, left top;
-	background-size: contain, contain, contain;*/
-	background: url('http://creationofsociety.com/wp/wp-content/uploads/2012/06/cos_flyer_back.jpg');
+	background-size: contain, contain, contain;
+	/*background: url('http://creationofsociety.com/wp/wp-content/uploads/2012/06/cos_flyer_back.jpg');*/
 	z-index:0;
 }
 .sectionContainer {
@@ -238,7 +253,7 @@ textarea {
 /*	--------------------------------------------------
 	:: Tables (Foundation Overwrite)
 	-------------------------------------------------- */
-	table { background: @tableBGColor; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin: 0 0 18px; border: 1px solid @tableBorderColor;  }
+	table { background: @tableBGColor; .border-radius(3px); margin: 0 0 18px; border: 1px solid @tableBorderColor;  }
 	
 	table thead, table tfoot { background: @tableCellBgDarkColor; }
 	
@@ -302,7 +317,7 @@ abbr {
 #home {
 	background: @transparent/*lighten(@accentColor, 3%)*/;
 	z-index: 2;
-	padding-bottom: 1.0rem;
+	padding-bottom: @standardContentPadding;
 	padding-top: 1.5rem;
 	
 	.headline {
@@ -446,6 +461,10 @@ abbr {
 }
 
 #wpContent {
+	.content .four.columns:nth-child(3n+1) {
+		margin-left: 0;
+		clear: both;
+	}
 	
 	article {
 		color: @secondaryFontColor;
@@ -456,6 +475,21 @@ abbr {
 		.entryTitle {
 			
 			a {
+			}
+		}
+	
+		&.category-creations-of-society {
+			.entryHeader {
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			.entryTitle {
+				font-size: 1.8rem;
+				
+				a {
+				}
 			}
 		}
 		
@@ -509,6 +543,57 @@ abbr {
 					
 					> ul > li:nth-child(even) {
 						background: rgba(0,0,0,0.15);
+					}
+				}
+			}
+			
+			.eshop.addtocart {
+				padding: 0;
+			
+				fieldset {
+					background: @interfaceBgColor;
+					border: 1px solid #333;
+					margin: 0;
+					
+					legend {
+						background: lighten(@interfaceBgColor, 20%);
+						border: none;
+						.border-radius(0);
+						margin-left: 0;
+						display: none;
+						
+						span {
+							color: @secondaryFontColor;
+						}
+					}
+					
+					label {
+						margin-right: 0;
+					
+						select {
+							margin: 0;
+							margin-bottom: 6px;
+							width: 100%;
+						}
+					}
+					
+					.qty {
+						float: left;
+						clear: both;
+					}
+					
+					.iqty {
+						margin: 0;
+						float: left;
+					}
+					
+					input[type="submit"] {
+						float: left;
+					}
+					
+					.sgloptiondetails {
+						float: left;
+						margin-bottom: 6px;
 					}
 				}
 			}
@@ -574,7 +659,7 @@ abbr {
 			margin-bottom: 4.0rem;
 			
 			.content {
-				padding: 1.0rem;
+				padding: @standardContentPadding;
 				color: @secondaryFontColor;
 				overflow: hidden;
 				
@@ -600,10 +685,10 @@ abbr {
 					padding-bottom: 0.5rem;
 				}
 				img.alignleft {
-					padding-right: 1.0rem;
+					padding-right: @standardContentPadding;
 				}
 				img.alignright {
-					padding-left: 1.0rem;
+					padding-left: @standardContentPadding;
 				}
 			}
 		
@@ -702,7 +787,7 @@ abbr {
 				overflow: auto;
 				
 				img {
-					padding: 1.0rem;
+					padding: @standardContentPadding;
 				}
 			}
 		}

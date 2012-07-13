@@ -155,7 +155,7 @@
 		$defaults = array(
 			'page' => null, 'pages' => null, 
 			'range' => 3, 'gap' => 3, 'anchor' => 1,
-			'before' => '<ul class="pagination">', 'after' => '</ul>',
+			'before' => '<article><ul class="pagination">', 'after' => '</ul></article>',
 			'title' => __('<li class="unavailable"></li>'),
 			'nextpage' => __('Older &raquo;'), 'previouspage' => __('&laquo Newer'),
 			'echo' => 1
